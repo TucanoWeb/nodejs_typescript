@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "5d8d8a85-f0ca-4109-ac76-7bcfa6319608",
+		"name": "Controle de Passagem Aérea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7953571"
+	},
+	"item": [
+		{
+			"name": "Aeroportos",
+			"item": [
+				{
+					"name": "Adicionar Aeroporto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"COD_AERO\": \"ABC\",\n\t\"NOME_AERO\": \"Aeroporto ABC\",\n\t\"PAIS_AERO\": \"PaisABC\",\n\t\"CIDADE_AERO\": \"CidadeABC\",\n\t\"FK_VOOS_COD_VOO\": 1,\n\t\"FK_AVIOES_ID_AV\": \"BOE1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/aeroportos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"aeroportos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Aeroporto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"NOME_AERO\": \"Aeroporto XYZ\",\n\t\"PAIS_AERO\": \"PaisXYZ\",\n\t\"CIDADE_AERO\": \"CidadeXYZ 2\",\n\t\"FK_VOOS_COD_VOO\": 1,\n\t\"FK_AVIOES_ID_AV\": \"BOE1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/aeroportos/ABC",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"aeroportos",
+								"ABC"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Aeroporto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/aeroportos/ABC",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"aeroportos",
+								"ABC"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos os Aeroportos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/aeroportos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"aeroportos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Avioes",
+			"item": [
+				{
+					"name": "Adicionar Aviao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ID_AV\": \"123456\",\n\t\"ANO_AV\": 2022,\n\t\"MODELO_AV\": \"Model X\",\n\t\"MAPA_ASSENTOS_AV\": \"Y\",\n\t\"NUM_ASSENTOS_AV\": 150\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/avioes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"avioes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Aviao",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ANO_AV\": 2023,\n\t\"MODELO_AV\": \"Model Y\",\n\t\"MAPA_ASSENTOS_AV\": \"Z\",\n\t\"NUM_ASSENTOS_AV\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/avioes/123456",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"avioes",
+								"123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Aviao",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/avioes/123456",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"avioes",
+								"123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos os Avioes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/avioes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"avioes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Passagens",
+			"item": [
+				{
+					"name": "Adicionar Passagem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"COD_PASS\": 51,\n    \"TIPO_PASS\": \"Econômico\",\n    \"COD_ASSENTOS\": 122,\n    \"FK_VOOS_COD_VOO\": 1,\n    \"FK_AVIOES_ID_AV\": \"BOE1\",\n    \"FK_AEROPORTOS_COD_AERO\": \"GRU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/passagens",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"passagens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Passagem",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"TIPO_PASS\": \"VIP\",\n    \"COD_ASSENTOS\": 122,\n    \"FK_VOOS_COD_VOO\": 1,\n    \"FK_AVIOES_ID_AV\": \"BOE1\",\n    \"FK_AEROPORTOS_COD_AERO\": \"GRU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/passagens/51",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"passagens",
+								"51"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Passagem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/passagens/51",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"passagens",
+								"51"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todas as Passagens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/passagens",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"passagens"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dados Pagamento",
+			"item": [
+				{
+					"name": "Adicionar Dados de Pagamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"COD_PAG\": 20,\n    \"ID_COMP\": \"30260034654\",\n    \"PASS_PAG\": \"Cartao1\",\n    \"VALOR_PAG\": 100,\n    \"EMAIL_PAG\": \"exemplo1@email.com\",\n    \"FK_PASSAGEM_COD_PASS\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dados-pagamento",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dados-pagamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Dados de Pagamento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID_COMP\": \"30260034654\",\n    \"PASS_PAG\": \"PIX\",\n    \"VALOR_PAG\": 100,\n    \"EMAIL_PAG\": \"exemplo1@email.com\",\n    \"FK_PASSAGEM_COD_PASS\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dados-pagamento/20",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dados-pagamento",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Dados de Pagamento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dados-pagamento/20",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dados-pagamento",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos os Dados de Pagamento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dados-pagamento",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dados-pagamento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Voos",
+			"item": [
+				{
+					"name": "Adicionar Voo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"COD_VOO\": 48,\n    \"DATA_VOO\": \"2023-12-20\",\n\t\"HORA_VOO\": 1300,\n\t\"TIPO_VOO\": \"Doméstico\",\n\t\"TRECHO_VOO\": \"CNF -> GRU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/voos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"voos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Voo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"DATA_VOO\": \"2023-11-23\",\n\t\"HORA_VOO\": 1300,\n\t\"TIPO_VOO\": \"VIP\",\n\t\"TRECHO_VOO\": \"CNF -> GRU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/voos/41",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"voos",
+								"41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Voo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/voos/44",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"voos",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos os Voos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/voos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"voos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Busca de Voos",
+			"item": [
+				{
+					"name": "Busca de Voos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/busca-voos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"busca-voos"
+							],
+							"query": [
+								{
+									"key": "tipo_passagem",
+									"value": "Doméstico",
+									"description": "Tipo de passagem: ida ou ida e volta",
+									"disabled": true
+								},
+								{
+									"key": "data_ida",
+									"value": "2023-10-01",
+									"description": "Data de ida no formato YYYY-MM-DD",
+									"disabled": true
+								},
+								{
+									"key": "data_retorno",
+									"value": "2023-10-02",
+									"description": "Data de retorno no formato YYYY-MM-DD",
+									"disabled": true
+								},
+								{
+									"key": "origem",
+									"value": "Belo Horizonte",
+									"description": "Cidade ou Aeroporto de Origem",
+									"disabled": true
+								},
+								{
+									"key": "destino",
+									"value": "Rio de Janeiro",
+									"description": "Cidade ou Aeroporto de Destino",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
